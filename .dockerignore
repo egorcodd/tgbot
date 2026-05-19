@@ -1,0 +1,16 @@
+.git
+.gitignore
+.venv
+venv
+__pycache__
+*.pyc
+.env
+.env.example
+secrets/
+data/
+*.db
+*.db-journal
+.idea
+.vscode
+*.md
+Путь*.pdf

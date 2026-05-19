@@ -1,0 +1,21 @@
+services:
+  bot:
+    build: .
+    container_name: tgbot
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # БД пишем в смонтированный volume, чтобы переживала обновления кода
+      - DATABASE_URL=sqlite+aiosqlite:///./data/bot.db
+    volumes:
+      # БД лидов — переживает обновления кода
+      - ./data:/app/data
+      # JSON-ключ Google Sheets
+      - ./secrets:/app/secrets
+      # картинки квиза — можно обновлять без ребилда
+      - ./public:/app/public
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

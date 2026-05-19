@@ -2,6 +2,7 @@
 *.db
 *.db-journal
 secrets/
+data/
 __pycache__/
 *.pyc
 .venv/
